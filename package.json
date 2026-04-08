@@ -3,12 +3,14 @@
     "husky": "^9.1.7",
     "lint-staged": "^16.0.0",
     "prettier": "3.5.3",
-    "prettier-plugin-tailwindcss": "0.6.11"
+    "prettier-plugin-tailwindcss": "^0.6.11"
   },
   "scripts": {
-    "prepare": "husky"
+    "prepare": "husky",
+    "format": "prettier . --write --cache --ignore-unknown",
+    "format:check": "prettier . --check --cache --ignore-unknown"
   },
   "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown"
+    "*.{html,css,js,jsx,ts,tsx,json,md,yml,yaml}": "prettier --write"
   }
 }

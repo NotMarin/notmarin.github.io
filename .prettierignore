@@ -3,10 +3,16 @@ node_modules/
 
 # Ignore lock files (handled by the package manager)
 bun.lock
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
 
 # Ignore generated or temporary files if you add folders like 'dist' or 'build' in the future
 dist/
 build/
+coverage/
+.next/
+out/
 
 # Ignore minified files (if you have them)
 *.min.js

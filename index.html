@@ -3,217 +3,1354 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.min.css"
     />
     <link rel="stylesheet" href="style.css" />
-    <title>MarinDev Portfolio</title>
+    <script src="main.js" defer></script>
+    <title data-i18n="siteTitle">MarinDev Portfolio</title>
   </head>
-  <body>
-    <nav>
-      <div class="nav-logo">
-        <a href="#">
-          <img src="public/images/logo.png" />
-        </a>
+  <body class="antialiased">
+    <div style="visibility: visible">
+      <div id="mouse-effect-layer" class="pointer-events-none fixed inset-0 -z-50 h-full w-full">
+        <div id="mouse-layer-gradient-a" class="absolute inset-0"></div>
+        <div id="mouse-layer-gradient-b" class="absolute inset-0"></div>
+        <div id="mouse-layer-grid-base" class="absolute inset-0"></div>
+        <div id="mouse-layer-spotlight" class="absolute inset-0"></div>
+        <div id="mouse-layer-grid-spotlight" class="absolute inset-0"></div>
+        <div id="mouse-layer-vignette" class="pointer-events-none absolute inset-0"></div>
       </div>
-
-      <ul class="nav-links">
-        <li class="link"><a href="#home">Home</a></li>
-        <li class="link"><a href="#about">About</a></li>
-        <li class="link"><a href="#projects">Projects</a></li>
-        <li class="link"><a href="#contact">Contact</a></li>
-      </ul>
-      <a href="#contact">
-        <button class="btn">Hire Me</button>
-      </a>
-    </nav>
-
-    <header id="home" class="container-header">
-      <div class="content">
-        <span class="blur"></span>
-        <span class="blur"></span>
-        <h4>CREATE YOUR SITE</h4>
-        <h1>
-          Hi, I'm
-          <span>Marin</span>
-          <br />
-          Front-end Developer
-        </h1>
-        <p>
-          I'm a creative problem-solver,
-          <br />
-          excited to translate your ideas into code.
-        </p>
-        <a href="#about">
-          <button class="btn">Get Started</button>
-        </a>
-      </div>
-      <div class="image">
-        <img src="public/images/header.png" />
-      </div>
-    </header>
-
-    <section id="about" class="container-section">
-      <h2 class="header">ABOUT</h2>
-      <div class="about">
-        <div class="card">
-          <div class="card-header">
-            <span><i class="ri-book-open-line"></i></span>
-            <h4>Study</h4>
-          </div>
-          <div class="flex-container">
-            <div>
-              <p>
-                <b>Technological Institute of Santa Rosa de Cabal</b>
-                <br />
-                Technical Bachelor
-                <br />
-                2016-2021
-              </p>
-              <a href="https://itesarc.edu.co/" target="_blank">
-                <i class="ri-link"></i>
+      <header class="fixed left-0 right-0 top-0 z-50 py-6">
+        <nav class="max-w-350 mx-auto px-6 md:px-8 lg:px-12">
+          <div class="relative hidden items-center justify-center lg:flex">
+            <div class="absolute left-0">
+              <button
+                data-theme-toggle
+                class="glass-strong relative flex h-14 w-14 cursor-pointer items-center justify-center rounded-full transition-transform duration-300 hover:scale-105 active:scale-95"
+                aria-label="Toggle theme"
+                data-i18n-aria-label="toggleTheme"
+                style="box-shadow: var(--shadow-elevation-low)"
+              >
+                <div class="absolute" style="opacity: 1; transform: none">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-moon text-white"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="absolute" style="opacity: 0; transform: scale(0) rotate(-180deg)">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-sun"
+                    aria-hidden="true"
+                  >
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M12 2v2"></path>
+                    <path d="M12 20v2"></path>
+                    <path d="m4.93 4.93 1.41 1.41"></path>
+                    <path d="m17.66 17.66 1.41 1.41"></path>
+                    <path d="M2 12h2"></path>
+                    <path d="M20 12h2"></path>
+                    <path d="m6.34 17.66-1.41 1.41"></path>
+                    <path d="m19.07 4.93-1.41 1.41"></path>
+                  </svg>
+                </div>
+              </button>
+            </div>
+            <div
+              data-desktop-nav-track
+              class="glass-strong relative flex h-14 items-center gap-1 rounded-full shadow-xl shadow-black/10"
+              style="padding-left: 32px; padding-right: 32px"
+            >
+              <span
+                data-desktop-nav-pill
+                class="nav-pill pointer-events-none absolute"
+                aria-hidden="true"
+              ></span>
+              <a
+                href="/#home"
+                data-desktop-nav-link
+                class="relative flex cursor-pointer items-center rounded-full text-sm font-semibold transition-colors duration-300"
+                style="padding: 10px 24px; color: var(--foreground)"
+              >
+                <span
+                  class="absolute inset-0 rounded-full"
+                  style="transform: none; transform-origin: 50% 50% 0px"
+                ></span>
+                <span class="relative z-10" data-i18n="navHome">Home</span>
+              </a>
+              <a
+                href="/#about"
+                data-desktop-nav-link
+                class="relative flex cursor-pointer items-center rounded-full text-sm font-semibold transition-colors duration-300"
+                style="padding: 10px 24px; color: var(--muted)"
+              >
+                <span class="relative z-10" data-i18n="navAbout">About</span>
+              </a>
+              <a
+                href="/#experience"
+                data-desktop-nav-link
+                class="relative flex cursor-pointer items-center rounded-full text-sm font-semibold transition-colors duration-300"
+                style="padding: 10px 24px; color: var(--muted)"
+              >
+                <span class="relative z-10" data-i18n="navExperience">Experience</span>
+              </a>
+              <a
+                href="/#projects"
+                data-desktop-nav-link
+                class="relative flex cursor-pointer items-center rounded-full text-sm font-semibold transition-colors duration-300"
+                style="padding: 10px 24px; color: var(--muted)"
+              >
+                <span class="relative z-10" data-i18n="navProjects">Projects</span>
+              </a>
+              <a
+                href="/#skills"
+                data-desktop-nav-link
+                class="relative flex cursor-pointer items-center rounded-full text-sm font-semibold transition-colors duration-300"
+                style="padding: 10px 24px; color: var(--muted)"
+              >
+                <span class="relative z-10" data-i18n="navSkills">Skills</span>
+              </a>
+              <a
+                href="/#contact"
+                data-desktop-nav-link
+                class="relative flex cursor-pointer items-center rounded-full text-sm font-semibold transition-colors duration-300"
+                style="padding: 10px 24px; color: var(--muted)"
+              >
+                <span class="relative z-10" data-i18n="navContact">Contact</span>
               </a>
             </div>
-
-            <div>
-              <p>
-                <b>Technological University of Pereira</b>
-                <br />
-                Software Engineering
-                <br />
-                2022-Actuality
-              </p>
-              <a href="https://www.utp.edu.co/" target="_blank">
-                <i class="ri-link"></i>
-              </a>
+            <div class="absolute right-0">
+              <button
+                data-language-toggle
+                class="glass-strong flex h-14 items-center gap-2 rounded-full text-sm font-semibold shadow-xl shadow-black/10 transition-transform duration-300 hover:scale-105"
+                aria-label="Switch language"
+                data-i18n-aria-label="toggleLanguage"
+                style="padding-left: 24px; padding-right: 24px; color: var(--foreground)"
+              >
+                <span class="material-symbols-outlined !text-base" aria-hidden="true">
+                  translate
+                </span>
+                <span data-language-toggle-label class="text-base">EN</span>
+              </button>
             </div>
           </div>
-        </div>
-        <div class="card">
-          <div class="card-header">
-            <span><i class="ri-team-line"></i></span>
-            <h4>Teams</h4>
+          <div class="relative flex items-center justify-center lg:hidden">
+            <div class="absolute left-0">
+              <button
+                data-theme-toggle
+                class="glass-strong relative flex h-14 w-14 cursor-pointer items-center justify-center rounded-full transition-transform duration-300 hover:scale-105 active:scale-95"
+                aria-label="Toggle theme"
+                data-i18n-aria-label="toggleTheme"
+                style="box-shadow: var(--shadow-elevation-low)"
+              >
+                <div class="absolute" style="opacity: 1; transform: none">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-moon text-white"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="absolute" style="opacity: 0; transform: scale(0) rotate(-180deg)">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-sun"
+                    aria-hidden="true"
+                  >
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M12 2v2"></path>
+                    <path d="M12 20v2"></path>
+                    <path d="m4.93 4.93 1.41 1.41"></path>
+                    <path d="m17.66 17.66 1.41 1.41"></path>
+                    <path d="M2 12h2"></path>
+                    <path d="M20 12h2"></path>
+                    <path d="m6.34 17.66-1.41 1.41"></path>
+                    <path d="m19.07 4.93-1.41 1.41"></path>
+                  </svg>
+                </div>
+              </button>
+            </div>
+            <button
+              data-mobile-menu-toggle
+              class="glass-strong flex size-14 items-center justify-center rounded-full shadow-xl shadow-black/10"
+              aria-label="Toggle menu"
+              data-i18n-aria-label="toggleMenu"
+              aria-expanded="false"
+            >
+              <div class="flex h-4 w-5 flex-col justify-between">
+                <span
+                  class="block h-0.5 w-5 rounded-full transition-transform duration-300"
+                  style="background: var(--foreground)"
+                ></span>
+                <span
+                  class="block h-0.5 w-5 rounded-full opacity-100 transition-opacity duration-300"
+                  style="background: var(--foreground)"
+                ></span>
+                <span
+                  class="block h-0.5 w-5 rounded-full transition-transform duration-300"
+                  style="background: var(--foreground)"
+                ></span>
+              </div>
+            </button>
+            <div class="absolute right-0">
+              <button
+                data-language-toggle
+                aria-label="Switch language"
+                data-i18n-aria-label="toggleLanguage"
+                class="glass-strong flex h-14 w-14 items-center justify-center gap-2 rounded-full sm:w-auto sm:px-6"
+                style="color: var(--foreground)"
+              >
+                <span
+                  class="material-symbols-outlined sr-only !text-base sm:not-sr-only"
+                  aria-hidden="true"
+                >
+                  translate
+                </span>
+                <span data-language-toggle-label class="text-base"> EN </span>
+              </button>
+            </div>
           </div>
-          <div class="flex-container">
-            <div>
-              <p>
-                <b>BackBone</b>
-                <br />
-                Research Seedbed
-                <br />
-                June/2023-June/2024
-              </p>
-              <div class="about-icons-container">
-                <a href="https://github.com/Backbone-UTP" target="_blank">
-                  <i class="ri-github-fill"></i>
+          <div
+            data-mobile-menu-panel
+            class="overflow-hidden lg:hidden"
+            style="height: 0px; opacity: 0; transform: translateY(-8px); pointer-events: none"
+          >
+            <div class="glass-strong mt-4 rounded-2xl p-4 shadow-xl shadow-black/10">
+              <div class="flex flex-col gap-2">
+                <a
+                  href="/#home"
+                  data-mobile-nav-item
+                  class="relative cursor-pointer rounded-full text-center text-sm font-semibold transition-colors duration-300"
+                  style="padding: 12px 24px; color: var(--foreground)"
+                  data-i18n="navHome"
+                >
+                  Home
                 </a>
                 <a
-                  href="https://instagram.com/backboneutp?igshid=MzRlODBiNWFlZA=="
-                  target="_blank"
+                  href="/#about"
+                  data-mobile-nav-item
+                  class="relative cursor-pointer rounded-full text-center text-sm font-semibold transition-colors duration-300"
+                  style="
+                    padding: 12px 24px;
+                    color: var(--muted);
+                    background: transparent;
+                    opacity: 0.8;
+                  "
+                  data-i18n="navAbout"
                 >
-                  <i class="ri-instagram-line"></i>
+                  About
+                </a>
+                <a
+                  href="/#experience"
+                  data-mobile-nav-item
+                  class="relative cursor-pointer rounded-full text-center text-sm font-semibold transition-colors duration-300"
+                  style="
+                    padding: 12px 24px;
+                    color: var(--muted);
+                    background: transparent;
+                    opacity: 0.8;
+                  "
+                >
+                  <span class="relative z-10" data-i18n="navExperience">Experience</span>
+                </a>
+                <a
+                  href="/#projects"
+                  data-mobile-nav-item
+                  class="relative cursor-pointer rounded-full text-center text-sm font-semibold transition-colors duration-300"
+                  style="
+                    padding: 12px 24px;
+                    color: var(--muted);
+                    background: transparent;
+                    opacity: 0.8;
+                  "
+                  data-i18n="navProjects"
+                  >Projects</a
+                ><a
+                  href="/#skills"
+                  data-mobile-nav-item
+                  class="relative cursor-pointer rounded-full text-center text-sm font-semibold transition-colors duration-300"
+                  style="
+                    padding: 12px 24px;
+                    color: var(--muted);
+                    background: transparent;
+                    opacity: 0.8;
+                  "
+                  data-i18n="navSkills"
+                  >Skills</a
+                ><a
+                  href="/#contact"
+                  data-mobile-nav-item
+                  class="relative cursor-pointer rounded-full text-center text-sm font-semibold transition-colors duration-300"
+                  style="
+                    padding: 12px 24px;
+                    color: var(--muted);
+                    background: transparent;
+                    opacity: 0.8;
+                  "
+                  data-i18n="navContact"
+                  >Contact</a
+                >
+              </div>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <main class="min-h-[100dvh]">
+        <section
+          id="home"
+          class="relative flex min-h-[100dvh] items-center justify-center px-4"
+          style="padding-top: 6rem; padding-bottom: 8rem"
+        >
+          <div
+            class="hero-layout mx-auto grid w-full max-w-7xl items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16"
+          >
+            <div class="flex flex-col gap-4">
+              <p
+                class="hero-tag flex w-fit rounded-full border border-blue-500/20 bg-blue-500/10 px-4 py-1.5 text-xs font-bold tracking-[0.3em] text-blue-500"
+              >
+                <span class="hero-tag-text inline-block" data-i18n="heroTag"
+                  >FRONTEND DEVELOPER</span
+                >
+              </p>
+              <h1 class="hero-heading text-5xl font-black leading-[1.1] md:text-6xl lg:text-7xl">
+                <span data-i18n="heroHeadingLead">From</span>
+                <span
+                  class="bg-blue-600 bg-clip-text text-transparent"
+                  data-i18n="heroHeadingAccent1"
+                >
+                  design
+                </span>
+                <br />
+                <span data-i18n="heroHeadingMid">to</span>
+                <span
+                  class="bg-blue-600 bg-clip-text text-transparent"
+                  data-i18n="heroHeadingAccent2"
+                >
+                  deployment
+                </span>
+              </h1>
+              <p
+                class="hero-heading max-w-xl text-lg font-medium leading-relaxed text-[var(--muted)] md:text-xl"
+              >
+                <span data-i18n="heroParagraphStart">I'm</span>
+                <span class="font-bold text-[var(--foreground)]">Santiago Marin</span>
+                <span data-i18n="heroParagraphAfterName">, Next.js + TypeScript specialist.</span>
+                <br />
+                <span data-i18n="heroParagraphSecondLine"
+                  >Dedicated to building high-performance, user-centric web applications.</span
+                >
+              </p>
+              <div class="hero-actions flex flex-col gap-3 pt-4 sm:flex-row">
+                <a
+                  href="#projects"
+                  data-i18n="heroCtaProjects"
+                  class="inline-flex items-center justify-center rounded-full bg-[var(--foreground)] px-6 py-3 text-sm font-semibold text-[var(--background)] transition-transform duration-300 hover:scale-[1.02]"
+                >
+                  Projects
+                </a>
+                <a
+                  href="/public/cv/CV_Santiago_Marin_English.pdf"
+                  download="CV_Santiago_Marin_English.pdf"
+                  data-cv-download
+                  data-i18n="heroCtaCv"
+                  class="inline-flex items-center justify-center rounded-full border border-[var(--card-border)] bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition-transform duration-300 hover:scale-[1.02]"
+                >
+                  Download CV
                 </a>
               </div>
             </div>
-            <div>
-              <p>
-                <b>Amatista</b>
-                <br />
-                Software Development
-                <br />
-                July/2024-Actuality
-              </p>
-              <a href="https://amatistatechnology.com/" target="_blank">
-                <i class="ri-link"></i>
-              </a>
+            <article class="hero-code-card hero-heading" data-parallax-tilt>
+              <header class="hero-code-card-header">
+                <div class="hero-code-dots" aria-hidden="true">
+                  <span></span><span></span><span></span>
+                </div>
+                <span class="hero-code-file">santiago-marin.config.ts</span>
+              </header>
+              <pre
+                class="hero-code-pre text-xs sm:text-base"
+                aria-label="Code preview"
+              ><code><span class="line"><span class="token token-keyword">const</span> <span class="token token-fn">profile</span> = {</span>
+<span class="line">  name: <span class="token token-jsx">"Santiago Marin"</span>,</span>
+<span class="line">  role: <span class="token token-jsx">"Frontend Developer"</span>,</span>
+<span class="line">  stack: [<span class="token token-jsx">"Next.js"</span>, <span class="token token-jsx">"TypeScript"</span>, <span class="token token-jsx">"React"</span>],</span>
+<span class="line">  apis: [<span class="token token-jsx">"REST"</span>, <span class="token token-jsx">"GraphQL"</span>],</span>
+<span class="line">  available: <span class="token token-fn">true</span>,</span>
+<span class="line">  remote: <span class="token token-fn">true</span>,</span>
+<span class="line">  location: <span class="token token-jsx">"Colombia"</span></span>
+<span class="line">};</span></code></pre>
+            </article>
+          </div>
+        </section>
+        <section
+          id="about"
+          class="relative flex min-h-[100dvh] items-center justify-center px-4"
+          style="padding-top: 6rem; padding-bottom: 8rem"
+        >
+          <div
+            class="hero-layout mx-auto grid w-full max-w-7xl items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16"
+          >
+            <div class="flex flex-col gap-10">
+              <h2 class="ease-animation text-3xl font-black leading-[1.1] md:text-4xl lg:text-4xl">
+                <span data-i18n="aboutTitle">About</span>
+                <span class="text-blue-600" data-i18n="aboutTitleAccent"> The Developer </span>
+              </h2>
+              <div
+                class="ease-animation group relative overflow-hidden rounded-3xl border border-white/5 bg-white/[0.02] p-8 shadow-2xl backdrop-blur-3xl lg:p-10"
+              >
+                <div
+                  class="absolute right-0 top-0 p-8 opacity-30 transition-transform duration-700 group-hover:rotate-12"
+                >
+                  <span class="material-symbols-outlined !text-[100px] text-blue-500"
+                    >code_xml</span
+                  >
+                </div>
+                <p
+                  class="about-description z-50 space-y-4 text-lg font-medium italic leading-relaxed text-[var(--foreground)] lg:text-xl"
+                  data-i18n="aboutDescription"
+                >
+                  I’m Frontend Developer specializing in TypeScript and building high-performance,
+                  scalable applications with React and Next.js. I craft responsive, user-centric
+                  interfaces and design reusable component systems to ensure consistency and
+                  maintainability. Focused on clean code and performance, I optimize rendering,
+                  manage state efficiently, and integrate APIs using GraphQL and REST to deliver
+                  robust, production-ready solutions.
+                </p>
+                <div
+                  class="absolute left-0 top-10 h-[calc(100%-72px)] w-1 rounded-full bg-gradient-to-b from-blue-600 to-transparent"
+                ></div>
+              </div>
+              <div class="ease-animation grid grid-cols-3 items-center gap-8">
+                <div class="flex flex-col items-center justify-center text-center">
+                  <span class="text-3xl font-black text-[var(--foreground)]">2+</span
+                  ><span
+                    class="text-xs font-bold uppercase tracking-widest text-[var(--muted)]"
+                    data-i18n="aboutYearsExperience"
+                    >Years Experience</span
+                  >
+                </div>
+                <div class="flex flex-col items-center justify-center text-center">
+                  <span class="text-3xl font-black text-[var(--foreground)]">B2</span
+                  ><span
+                    class="text-xs font-bold uppercase tracking-widest text-[var(--muted)]"
+                    data-i18n="aboutEnglishLevel"
+                    >English</span
+                  >
+                </div>
+                <div class="flex flex-col items-center justify-center text-center">
+                  <span class="text-3xl font-black text-[var(--foreground)]">4</span
+                  ><span
+                    class="text-xs font-bold uppercase tracking-widest text-[var(--muted)]"
+                    data-i18n="aboutWorkedProjects"
+                    >Production Projects</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="ease-animation group relative md:mx-4 lg:mx-6">
+              <div
+                class="absolute -inset-4 rounded-3xl border border-blue-500/50 opacity-50 transition-all duration-500 group-hover:-inset-5"
+              ></div>
+              <div
+                class="relative aspect-[1/1] overflow-hidden rounded-2xl border-2 border-white/10 bg-blue-600 shadow-lg shadow-blue-600/50"
+              >
+                <img
+                  alt="Santiago Marin"
+                  decoding="async"
+                  data-nimg="fill"
+                  class="object-cover transition-all duration-1000 group-hover:scale-105 group-hover:grayscale-0"
+                  style="
+                    position: absolute;
+                    height: 100%;
+                    width: 100%;
+                    left: 0;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    color: transparent;
+                  "
+                  src="/public/images/SantiagoMarin.webp"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-blue-600/30 via-transparent to-transparent opacity-60"
+                ></div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="tech-stack">
-        <div class="card-header">
-          <span><i class="ri-code-s-slash-line"></i></span>
-          <h4>Tech Stack</h4>
-        </div>
-        <div class="icons-container">
-          <img class="icon" src="https://skillicons.dev/icons?i=html" />
-          <img class="icon" src="https://skillicons.dev/icons?i=css" />
-          <img class="icon" src="https://skillicons.dev/icons?i=js" />
-          <img class="icon" src="https://skillicons.dev/icons?i=ts" />
-          <img class="icon" src="https://skillicons.dev/icons?i=nextjs" />
-          <img class="icon" src="https://skillicons.dev/icons?i=react" />
-          <img class="icon" src="https://skillicons.dev/icons?i=nodejs" />
-          <img class="icon" src="https://skillicons.dev/icons?i=py" />
-          <img class="icon" src="https://skillicons.dev/icons?i=tailwind" />
-          <img class="icon" src="https://skillicons.dev/icons?i=postman" />
-          <img class="icon" src="https://skillicons.dev/icons?i=cpp" />
-          <img class="icon" src="https://skillicons.dev/icons?i=latex" />
-        </div>
-      </div>
-    </section>
+        </section>
+        <section
+          id="experience"
+          class="relative flex min-h-[100dvh] items-center justify-center px-4"
+          style="padding-top: 6rem; padding-bottom: 8rem"
+        >
+          <div class="mx-auto w-full max-w-6xl">
+            <div class="mb-14 flex flex-col items-center gap-4 text-center">
+              <p
+                class="ease-animation inline-flex rounded-full border border-blue-500/25 bg-blue-500/10 px-4 py-1.5 text-xs font-bold tracking-[0.26em] text-blue-500"
+                data-i18n="experienceEyebrow"
+              >
+                CAREER PATH
+              </p>
+              <h2 class="ease-animation text-3xl font-black leading-[1.1] md:text-4xl lg:text-5xl">
+                <span data-i18n="experienceTitleLead">Experience</span>
+                <span class="text-blue-600" data-i18n="experienceTitleAccent">Timeline</span>
+              </h2>
+              <p
+                class="ease-animation max-w-2xl text-sm font-medium leading-relaxed text-[var(--muted)] md:text-base"
+                data-i18n="experienceIntro"
+              >
+                A quick view of how I evolved from frontend foundations to shipping production-ready
+                web products.
+              </p>
+            </div>
 
-    <section id="projects" class="container-section">
-      <h2 class="header">PROJECTS</h2>
-      <p class="sub-header">
-        Here are some of my projects that I have worked on recently.
-      </p>
-      <div class="project">
-        <div class="card">
-          <div class="content">
-            <img class="project1" src="public/images/dispatch-algorithms.png" />
-            <h3>Dispatch Algorithms Simulator</h3>
-            <p>
-              <i class="ri-checkbox-circle-line"></i>
-              Developed in NextJS
-            </p>
-            <a
-              href="https://github.com/NotMarin/dispatch-algorithms"
-              target="_blank"
-            >
-              <i class="ri-github-fill"></i>
-            </a>
+            <div class="timeline-list" data-timeline>
+              <article class="timeline-item" data-timeline-item style="--timeline-order: 0">
+                <div class="timeline-node" aria-hidden="true"></div>
+                <div class="timeline-card glass-strong relative rounded-3xl p-6 md:p-7">
+                  <div class="mb-4 flex items-center justify-between gap-3">
+                    <time
+                      class="text-xs font-black uppercase tracking-[0.22em] text-blue-500"
+                      data-i18n="experiencePeriod1"
+                      >May 2024 - March 2026</time
+                    >
+                    <span class="timeline-chip" data-i18n="experienceChip1">Amatista Team</span>
+                  </div>
+                  <h3
+                    class="text-xl font-extrabold leading-tight text-[var(--foreground)] md:text-2xl"
+                    data-i18n="experienceJobTitle1"
+                  >
+                    Frontend Developer
+                  </h3>
+                  <ul
+                    class="mt-3 list-disc space-y-1 pl-5 text-sm leading-relaxed text-[var(--muted)] md:text-base"
+                  >
+                    <li data-i18n="experienceListItem1">
+                      Component library development with shadcn/ui distributed via GitHub Packages.
+                    </li>
+                    <li data-i18n="experienceListItem2">GraphQL and REST API integration.</li>
+                    <li data-i18n="experienceListItem3">Global state management with Zustand.</li>
+                    <li data-i18n="experienceListItem4">
+                      Performance optimization with 20% load time reduction.
+                    </li>
+                    <li data-i18n="experienceListItem5">
+                      Unit testing with Jest and documentation with Storybook.
+                    </li>
+                  </ul>
+                  <div class="mt-5 flex flex-wrap gap-2">
+                    <span class="timeline-stack">Next.js</span>
+                    <span class="timeline-stack">TypeScript</span>
+                    <span class="timeline-stack">Apollo CLient</span>
+                    <span class="timeline-stack">React Query</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="timeline-item" data-timeline-item style="--timeline-order: 1">
+                <div class="timeline-node" aria-hidden="true"></div>
+                <div class="timeline-card glass-strong relative rounded-3xl p-6 md:p-7">
+                  <div class="mb-4 flex items-center justify-between gap-3">
+                    <time
+                      class="text-xs font-black uppercase tracking-[0.22em] text-blue-500"
+                      data-i18n="experiencePeriod2"
+                      >2023</time
+                    >
+                    <span class="timeline-chip" data-i18n="experienceChip2"
+                      >Technical Learning</span
+                    >
+                  </div>
+                  <h3
+                    class="text-xl font-extrabold leading-tight text-[var(--foreground)] md:text-2xl"
+                    data-i18n="experienceJobTitle2"
+                  >
+                    Frontend Development Beginnings
+                  </h3>
+                  <p
+                    class="mt-3 text-sm leading-relaxed text-[var(--muted)] md:text-base"
+                    data-i18n="experienceDescription2"
+                  >
+                    Started with personal projects and online courses, learning HTML, CSS,
+                    JavaScript and React to build interactive web interfaces.
+                  </p>
+                  <div class="mt-5 flex flex-wrap gap-2">
+                    <span class="timeline-stack">HTML</span>
+                    <span class="timeline-stack">CSS</span>
+                    <span class="timeline-stack">JavaScript</span>
+                    <span class="timeline-stack">React</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="timeline-item" data-timeline-item style="--timeline-order: 2">
+                <div class="timeline-node" aria-hidden="true"></div>
+                <div class="timeline-card glass-strong relative rounded-3xl p-6 md:p-7">
+                  <div class="mb-4 flex items-center justify-between gap-3">
+                    <time
+                      class="text-xs font-black uppercase tracking-[0.22em] text-blue-500"
+                      data-i18n="experiencePeriod3"
+                      >February 2022 - Present</time
+                    >
+                    <span class="timeline-chip" data-i18n="experienceChip3">Education</span>
+                  </div>
+                  <h3
+                    class="text-xl font-extrabold leading-tight text-[var(--foreground)] md:text-2xl"
+                    data-i18n="experienceJobTitle3"
+                  >
+                    Systems Engineering and Computing
+                  </h3>
+                  <p
+                    class="mt-3 text-sm leading-relaxed text-[var(--muted)] md:text-base"
+                    data-i18n="experienceDescription3"
+                  >
+                    Training in software engineering fundamentals, algorithms, computer
+                    architecture, artificial intelligence and distributed systems at Technological
+                    University of Pereira.
+                  </p>
+                  <div class="mt-5 flex flex-wrap gap-2">
+                    <span class="timeline-stack"> Java </span>
+                    <span class="timeline-stack"> Python </span>
+                    <span class="timeline-stack"> C++ </span>
+                  </div>
+                </div>
+              </article>
+            </div>
           </div>
-        </div>
-        <div class="card">
-          <div class="content">
-            <img class="project1" src="public/images/page-dispatch.png" />
-            <h3>Page Replacement Algorithms Simulator</h3>
-            <p>
-              <i class="ri-checkbox-circle-line"></i>
-              Developed in NextJS
-            </p>
-            <a href="https://github.com/NotMarin/page-dispatch" target="_blank">
-              <i class="ri-github-fill"></i>
-            </a>
+        </section>
+        <section
+          id="projects"
+          class="relative flex min-h-[100dvh] items-center justify-center px-4"
+          style="padding-top: 6rem; padding-bottom: 8rem"
+        >
+          <div class="mx-auto w-full max-w-7xl">
+            <div class="mb-14 flex flex-col items-center gap-4 text-center">
+              <p
+                class="ease-animation inline-flex rounded-full border border-blue-500/25 bg-blue-500/10 px-4 py-1.5 text-xs font-bold tracking-[0.26em] text-blue-500"
+                data-i18n="projectsEyebrow"
+              >
+                Portfolio
+              </p>
+              <h2 class="ease-animation text-3xl font-black leading-[1.1] md:text-4xl lg:text-5xl">
+                <span data-i18n="projectsTitleLead">Featured</span>
+                <span class="text-blue-600" data-i18n="projectsTitleAccent">Projects</span>
+              </h2>
+              <p
+                class="ease-animation max-w-2xl text-sm font-medium leading-relaxed text-[var(--muted)] md:text-base"
+                data-i18n="projectsIntro"
+              >
+                A selection of projects that demonstrate my skills in frontend development.
+              </p>
+            </div>
+
+            <div class="grid w-full gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+              <div
+                data-project-item
+                class="project-card-wrap group relative h-full translate-y-8 opacity-0 blur-sm transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:blur-0"
+              >
+                <div
+                  class="project-card-glow pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100"
+                  style="
+                    background: radial-gradient(
+                      600px at 441.5px 239.125px,
+                      rgba(21, 93, 252, 0.1),
+                      transparent 40%
+                    );
+                  "
+                ></div>
+                <div
+                  class="project-card relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-[#050505]/20 text-[var(--foreground)] shadow-2xl backdrop-blur-xl transition-all duration-500 hover:border-blue-600/50 hover:shadow-blue-600/25"
+                >
+                  <div class="flex-1">
+                    <div class="relative aspect-video overflow-hidden">
+                      <img
+                        alt="Flylogixs"
+                        loading="lazy"
+                        width="800"
+                        height="450"
+                        decoding="async"
+                        data-nimg="1"
+                        class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        style="color: transparent"
+                        src="/public/images/flylogixs-mockup.webp"
+                      />
+                    </div>
+                    <div class="flex flex-col space-y-1.5 p-6 pb-2">
+                      <div
+                        class="flex items-center gap-2 text-2xl font-bold tracking-tight"
+                        data-i18n="projectsTitle1"
+                      >
+                        FlyLogixs
+                      </div>
+                    </div>
+                    <div class="p-6 px-6 pt-0">
+                      <p
+                        class="mb-6 text-sm font-medium italic leading-relaxed text-[var(--muted)]"
+                        data-i18n="projectsDesc1"
+                      >
+                        Flight management web app for real-time route tracking, status monitoring,
+                        and operational insights through a fast, modern, and user-friendly
+                        interface.
+                      </p>
+                      <div class="flex flex-wrap gap-2">
+                        <span class="timeline-stack">Next.js 15</span
+                        ><span class="timeline-stack">TypeScript</span
+                        ><span class="timeline-stack">Tailwind CSS</span
+                        ><span class="timeline-stack">Shadcn UI</span
+                        ><span class="timeline-stack">REST</span>
+                        <span class="timeline-stack">React Query</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-4 p-6 pt-2">
+                    <a
+                      target="_blank"
+                      class="flex-1"
+                      href="https://frontend-flight-system-wte7.vercel.app/en/home"
+                      ><button
+                        class="project-card-button focus-visible:ring-ring flex h-11 w-full items-center justify-center gap-2 whitespace-nowrap rounded-xl border border-white/10 px-4 py-2 text-xs font-bold uppercase tracking-widest shadow-xl transition-all duration-300 focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50"
+                        data-i18n="projectsButtonLiveDemo"
+                      >
+                        Live Demo
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div
+                data-project-item
+                class="project-card-wrap group relative h-full translate-y-8 opacity-0 blur-sm transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:blur-0"
+              >
+                <div
+                  class="project-card-glow pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100"
+                  style="
+                    background: radial-gradient(
+                      600px at 441.5px 239.125px,
+                      rgba(21, 93, 252, 0.1),
+                      transparent 40%
+                    );
+                  "
+                ></div>
+                <div
+                  class="project-card relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-[#050505]/20 text-[var(--foreground)] shadow-2xl backdrop-blur-xl transition-all duration-500 hover:border-blue-600/50 hover:shadow-blue-600/25"
+                >
+                  <div class="flex-1">
+                    <div class="relative aspect-video overflow-hidden">
+                      <img
+                        alt="Flylogixs"
+                        loading="lazy"
+                        width="800"
+                        height="450"
+                        decoding="async"
+                        data-nimg="1"
+                        class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        style="color: transparent"
+                        src="/public/images/dispatch-mockup.webp"
+                      />
+                    </div>
+                    <div class="flex flex-col space-y-1.5 p-6 pb-2">
+                      <div
+                        class="flex items-center gap-2 text-2xl font-bold tracking-tight"
+                        data-i18n="projectsTitle2"
+                      >
+                        Dispatch Algorithm
+                      </div>
+                    </div>
+                    <div class="p-6 px-6 pt-0">
+                      <p
+                        class="mb-6 text-sm font-medium italic leading-relaxed text-[var(--muted)]"
+                        data-i18n="projectsDesc2"
+                      >
+                        Dispatching algorithms visualization tool for analyzing scheduling
+                        strategies, task prioritization, and performance through interactive
+                        simulations.
+                      </p>
+                      <div class="flex flex-wrap gap-2">
+                        <span class="timeline-stack">Next.js 15</span
+                        ><span class="timeline-stack">TypeScript</span
+                        ><span class="timeline-stack">Tailwind CSS</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-4 p-6 pt-2">
+                    <a
+                      target="_blank"
+                      class="flex-1"
+                      href="https://github.com/NotMarin/dispatch-algorithms"
+                      ><button
+                        class="project-card-button focus-visible:ring-ring flex h-11 w-full items-center justify-center gap-2 whitespace-nowrap rounded-xl border border-white/10 px-4 py-2 text-xs font-bold uppercase tracking-widest shadow-xl transition-all duration-300 focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50"
+                        data-i18n="projectsButtonSource1"
+                      >
+                        Source
+                      </button></a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div
+                data-project-item
+                class="project-card-wrap group relative h-full translate-y-8 opacity-0 blur-sm transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:blur-0"
+              >
+                <div
+                  class="project-card-glow pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100"
+                  style="
+                    background: radial-gradient(
+                      600px at 441.5px 239.125px,
+                      rgba(21, 93, 252, 0.1),
+                      transparent 40%
+                    );
+                  "
+                ></div>
+                <div
+                  class="project-card relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-[#050505]/20 text-[var(--foreground)] shadow-2xl backdrop-blur-xl transition-all duration-500 hover:border-blue-600/50 hover:shadow-blue-600/25"
+                >
+                  <div class="flex-1">
+                    <div class="relative aspect-video overflow-hidden">
+                      <img
+                        alt="Flylogixs"
+                        loading="lazy"
+                        width="800"
+                        height="450"
+                        decoding="async"
+                        data-nimg="1"
+                        class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        style="color: transparent"
+                        src="/public/images/psytrack.webp"
+                      />
+                    </div>
+                    <div class="flex flex-col space-y-1.5 p-6 pb-2">
+                      <div
+                        class="flex items-center gap-2 text-2xl font-bold tracking-tight"
+                        data-i18n="projectsTitle3"
+                      >
+                        PsyTrack
+                      </div>
+                    </div>
+                    <div class="p-6 px-6 pt-0">
+                      <p
+                        class="mb-6 text-sm font-medium italic leading-relaxed text-[var(--muted)]"
+                        data-i18n="projectsDesc3"
+                      >
+                        Mental health tracking and support app for monitoring mood, managing
+                        emotional states, and providing structured psychological guidance through a
+                        clean, user-focused interface.
+                      </p>
+                      <div class="flex flex-wrap gap-2">
+                        <span class="timeline-stack">Next.js 15</span
+                        ><span class="timeline-stack">TypeScript</span
+                        ><span class="timeline-stack">Tailwind CSS</span
+                        ><span class="timeline-stack">Shadcn UI</span
+                        ><span class="timeline-stack">Supabase</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-4 p-6 pt-2">
+                    <a
+                      target="_blank"
+                      class="flex-1"
+                      href="https://github.com/NotMarin/accompaniment-app"
+                      ><button
+                        class="project-card-button focus-visible:ring-ring flex h-11 w-full items-center justify-center gap-2 whitespace-nowrap rounded-xl border border-white/10 px-4 py-2 text-xs font-bold uppercase tracking-widest shadow-xl transition-all duration-300 focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50"
+                        data-i18n="projectsButtonSource2"
+                      >
+                        Source
+                      </button></a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </section>
+        <section
+          id="skills"
+          class="relative flex min-h-[100dvh] items-center justify-center px-4"
+          style="padding-top: 6rem; padding-bottom: 8rem"
+        >
+          <div class="mx-auto w-full max-w-7xl">
+            <div class="mb-14 flex flex-col items-center gap-4 text-center">
+              <p
+                data-skill-item
+                class="inline-flex translate-y-6 rounded-full border border-blue-500/25 bg-blue-500/10 px-4 py-1.5 text-xs font-bold tracking-[0.26em] text-blue-500 opacity-0 blur-sm transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:blur-0"
+                data-i18n="skillsEyebrow"
+              >
+                CORE STACK
+              </p>
+              <h2
+                data-skill-item
+                class="translate-y-6 text-3xl font-black leading-[1.1] opacity-0 blur-sm transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:blur-0 md:text-4xl lg:text-5xl"
+              >
+                <span data-i18n="skillsTitleLead">Skills</span>
+                <span class="text-blue-600" data-i18n="skillsTitleAccent">Toolkit</span>
+              </h2>
+              <p
+                data-skill-item
+                class="max-w-2xl translate-y-6 text-sm font-medium leading-relaxed text-[var(--muted)] opacity-0 blur-sm transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:blur-0 md:text-base"
+                data-i18n="skillsIntro"
+              >
+                Technologies I use to design, build and ship robust frontend products.
+              </p>
+            </div>
 
-    <footer id="contact" class="container-footer">
-      <span class="blur"></span>
-      <span class="blur"></span>
-      <div class="column">
-        <div class="logo">
-          <img src="public/images/logo.png" />
-        </div>
-      </div>
-      <div class="column">
-        <h4>Contact Me</h4>
-        <div class="socials">
-          <a href="https://www.linkedin.com/in/notmarin/" target="_blank">
-            <i class="ri-linkedin-fill"></i>
-          </a>
-          <a href="https://github.com/NotMarin" target="_blank">
-            <i class="ri-github-fill"></i>
-          </a>
-        </div>
-      </div>
-    </footer>
+            <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+              <article
+                data-skill-item
+                class="glass-strong relative translate-y-8 overflow-hidden rounded-3xl border border-white/10 p-6 opacity-0 shadow-2xl shadow-black/20 blur-sm transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:blur-0"
+              >
+                <div
+                  class="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-blue-500/20 blur-2xl"
+                ></div>
+                <h3
+                  class="text-xl font-extrabold text-[var(--foreground)]"
+                  data-i18n="skillsCardTitle1"
+                >
+                  Frontend Engineering
+                </h3>
+                <p
+                  class="mt-2 text-sm leading-relaxed text-[var(--muted)]"
+                  data-i18n="skillsCardDesc1"
+                >
+                  Interfaces focused on performance, accessibility and maintainable architecture.
+                </p>
+                <div class="mt-6 rounded-2xl border border-white/10 bg-black/20 p-4">
+                  <img
+                    src="https://skillicons.dev/icons?i=html,css,js,ts,react,nextjs,tailwind,redux&perline=4"
+                    alt="HTML, CSS, JavaScript, TypeScript, React, Next.js, Tailwind and Redux"
+                    loading="lazy"
+                    decoding="async"
+                    class="mx-auto w-full max-w-[280px]"
+                  />
+                </div>
+              </article>
 
-    <div class="copyright">
-      Copyrigth &copy; 2023 Santiago Marin Henao. All Rights Reserved.
+              <article
+                data-skill-item
+                class="glass-strong relative translate-y-8 overflow-hidden rounded-3xl border border-white/10 p-6 opacity-0 shadow-2xl shadow-black/20 blur-sm transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:blur-0"
+              >
+                <div
+                  class="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-sky-500/20 blur-2xl"
+                ></div>
+                <h3
+                  class="text-xl font-extrabold text-[var(--foreground)]"
+                  data-i18n="skillsCardTitle2"
+                >
+                  APIs And Data
+                </h3>
+                <p
+                  class="mt-2 text-sm leading-relaxed text-[var(--muted)]"
+                  data-i18n="skillsCardDesc2"
+                >
+                  Integration of modern services for reliable data flows and production deployments.
+                </p>
+                <div class="mt-6 rounded-2xl border border-white/10 bg-black/20 p-4">
+                  <img
+                    src="https://skillicons.dev/icons?i=graphql,apollo,supabase,firebase,postgres,prisma,nodejs,express&perline=4"
+                    alt="GraphQL, Apollo, Supabase, Firebase, PostgreSQL, Prisma, Node.js and Express"
+                    loading="lazy"
+                    decoding="async"
+                    class="mx-auto w-full max-w-[280px]"
+                  />
+                </div>
+              </article>
+
+              <article
+                data-skill-item
+                class="glass-strong relative translate-y-8 overflow-hidden rounded-3xl border border-white/10 p-6 opacity-0 shadow-2xl shadow-black/20 blur-sm transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:blur-0 md:col-span-2 xl:col-span-1"
+              >
+                <div
+                  class="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-indigo-500/20 blur-2xl"
+                ></div>
+                <h3
+                  class="text-xl font-extrabold text-[var(--foreground)]"
+                  data-i18n="skillsCardTitle3"
+                >
+                  Tooling And Quality
+                </h3>
+                <p
+                  class="mt-2 text-sm leading-relaxed text-[var(--muted)]"
+                  data-i18n="skillsCardDesc3"
+                >
+                  Workflow optimized for collaboration, testing and clean iterative delivery.
+                </p>
+                <div class="mt-6 rounded-2xl border border-white/10 bg-black/20 p-4">
+                  <img
+                    src="https://skillicons.dev/icons?i=git,github,vscode,figma,jest,postman,docker,vercel&perline=4"
+                    alt="Git, GitHub, VSCode, Figma, Jest, Postman, Docker and Vercel"
+                    loading="lazy"
+                    decoding="async"
+                    class="mx-auto w-full max-w-[280px]"
+                  />
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+        <section
+          id="contact"
+          class="relative flex min-h-[100dvh] items-center justify-center px-4"
+          style="padding-top: 6rem; padding-bottom: 8rem"
+        >
+          <div class="mx-auto w-full max-w-7xl">
+            <div class="mb-14 flex flex-col items-center gap-4 text-center">
+              <p
+                data-contact-item
+                class="inline-flex translate-y-6 rounded-full border border-blue-500/25 bg-blue-500/10 px-4 py-1.5 text-xs font-bold tracking-[0.26em] text-blue-500 opacity-0 blur-sm transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:blur-0"
+                data-i18n="contactEyebrow"
+              >
+                LET'S BUILD SOMETHING
+              </p>
+              <h2
+                data-contact-item
+                class="translate-y-6 text-3xl font-black leading-[1.1] opacity-0 blur-sm transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:blur-0 md:text-4xl lg:text-5xl"
+              >
+                <span data-i18n="contactTitleLead">Contact</span>
+                <span class="text-blue-600" data-i18n="contactTitleAccent">Section</span>
+              </h2>
+              <p
+                data-contact-item
+                class="max-w-2xl translate-y-6 text-sm font-medium leading-relaxed text-[var(--muted)] opacity-0 blur-sm transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:blur-0 md:text-base"
+                data-i18n="contactIntro"
+              >
+                Have a project in mind? Send me a message and let's talk.
+              </p>
+            </div>
+
+            <div class="grid items-start gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+              <article
+                data-contact-item
+                class="glass-strong contact-surface translate-y-8 rounded-3xl p-6 opacity-0 blur-sm transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:blur-0 md:p-8"
+              >
+                <form
+                  data-contact-form
+                  class="contact-form-grid"
+                  action="https://api.web3forms.com/submit"
+                  method="POST"
+                  novalidate
+                >
+                  <div class="space-y-2">
+                    <label class="contact-label" for="contact-name" data-i18n="contactFieldName"
+                      >Name</label
+                    >
+                    <input
+                      id="contact-name"
+                      name="name"
+                      type="text"
+                      required
+                      minlength="2"
+                      data-i18n-placeholder="contactFieldNamePlaceholder"
+                      placeholder="Your name"
+                      class="contact-input"
+                      autocomplete="name"
+                    />
+                  </div>
+
+                  <div class="space-y-2">
+                    <label class="contact-label" for="contact-email" data-i18n="contactFieldEmail"
+                      >Email</label
+                    >
+                    <input
+                      id="contact-email"
+                      name="email"
+                      type="email"
+                      required
+                      data-i18n-placeholder="contactFieldEmailPlaceholder"
+                      placeholder="you@example.com"
+                      class="contact-input"
+                      autocomplete="email"
+                    />
+                  </div>
+
+                  <div class="space-y-2">
+                    <label
+                      class="contact-label"
+                      for="contact-message"
+                      data-i18n="contactFieldMessage"
+                      >Message</label
+                    >
+                    <textarea
+                      id="contact-message"
+                      name="message"
+                      required
+                      minlength="10"
+                      rows="6"
+                      data-i18n-placeholder="contactFieldMessagePlaceholder"
+                      placeholder="Tell me about your project"
+                      class="contact-input contact-textarea"
+                    ></textarea>
+                  </div>
+
+                  <input type="hidden" name="subject" value="New Portfolio Contact Message" />
+                  <input type="hidden" name="from_name" value="Santiago Marin Portfolio" />
+                  <!-- Web3Forms access key is injected at CI deploy time via GitHub Actions. -->
+                  <input
+                    type="hidden"
+                    name="access_key"
+                    value="PLACEHOLDER_WEB3FORMS_KEY"
+                    data-web3forms-key
+                  />
+
+                  <div
+                    class="flex flex-col gap-3 pt-2 sm:flex-row sm:items-center sm:justify-between"
+                  >
+                    <button
+                      type="submit"
+                      data-contact-submit
+                      disabled
+                      class="project-card-button inline-flex h-11 cursor-pointer items-center justify-center gap-2 rounded-xl border border-white/10 px-6 py-3 text-xs font-bold uppercase tracking-widest transition-all duration-300 disabled:pointer-events-none disabled:opacity-50"
+                      data-i18n="contactButtonSend"
+                    >
+                      Send Message
+                    </button>
+                    <p
+                      data-contact-status
+                      data-state="idle"
+                      data-i18n="contactStatusIdle"
+                      class="contact-status text-sm font-medium text-[var(--muted)]"
+                    >
+                      Fill the form and send your message.
+                    </p>
+                  </div>
+                </form>
+              </article>
+
+              <aside class="grid gap-4">
+                <article
+                  data-contact-item
+                  class="glass-strong contact-surface translate-y-8 rounded-3xl p-6 opacity-0 blur-sm transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:blur-0"
+                >
+                  <p
+                    class="text-xs font-bold uppercase tracking-[0.2em] text-blue-500"
+                    data-i18n="contactDirectTitle"
+                  >
+                    DIRECT CONTACT
+                  </p>
+                  <div class="mt-4 grid gap-3">
+                    <div class="contact-direct-card">
+                      <span
+                        class="material-symbols-outlined !text-base text-blue-500"
+                        aria-hidden="true"
+                        >mail</span
+                      >
+                      <div>
+                        <p class="contact-direct-label" data-i18n="contactEmailLabel">Email</p>
+                        <a class="contact-direct-value" href="mailto:santimarinh04@gmail.com"
+                          >santimarinh04@gmail.com</a
+                        >
+                      </div>
+                    </div>
+                    <div class="contact-direct-card">
+                      <span
+                        class="material-symbols-outlined !text-base text-blue-500"
+                        aria-hidden="true"
+                        >location_on</span
+                      >
+                      <div>
+                        <p class="contact-direct-label" data-i18n="contactLocationLabel">
+                          Location
+                        </p>
+                        <p class="contact-direct-value">Santa Rosa de Cabal, Colombia</p>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <article
+                  data-contact-item
+                  class="glass-strong contact-surface translate-y-8 rounded-3xl p-6 opacity-0 blur-sm transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:blur-0"
+                >
+                  <p
+                    class="text-xs font-bold uppercase tracking-[0.2em] text-blue-500"
+                    data-i18n="contactSocialTitle"
+                  >
+                    SOCIAL
+                  </p>
+                  <div class="mt-4 flex flex-wrap gap-3">
+                    <a
+                      href="https://github.com/NotMarin"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      class="contact-social-link"
+                      data-i18n-aria-label="contactGithubAria"
+                      aria-label="GitHub profile"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        class="size-5"
+                        fill="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M12 2a10 10 0 0 0-3.162 19.49c.5.093.682-.217.682-.482 0-.236-.009-.866-.014-1.699-2.776.603-3.363-1.338-3.363-1.338-.455-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.53 1.03 1.53 1.03.892 1.529 2.34 1.087 2.91.831.092-.646.35-1.087.636-1.337-2.216-.252-4.548-1.108-4.548-4.934 0-1.09.389-1.983 1.029-2.682-.103-.253-.446-1.269.098-2.645 0 0 .84-.269 2.75 1.024A9.56 9.56 0 0 1 12 6.845a9.56 9.56 0 0 1 2.505.337c1.909-1.293 2.748-1.024 2.748-1.024.545 1.376.202 2.392.099 2.645.64.699 1.028 1.592 1.028 2.682 0 3.835-2.336 4.678-4.559 4.925.359.309.678.919.678 1.852 0 1.337-.012 2.416-.012 2.746 0 .267.18.579.688.481A10 10 0 0 0 12 2Z"
+                        />
+                      </svg>
+                      <span>GitHub</span>
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/notmarin"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      class="contact-social-link"
+                      data-i18n-aria-label="contactLinkedinAria"
+                      aria-label="LinkedIn profile"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        class="size-5"
+                        fill="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.555V9h3.564v11.452z"
+                        />
+                      </svg>
+                      <span>LinkedIn</span>
+                    </a>
+                  </div>
+                </article>
+              </aside>
+            </div>
+          </div>
+        </section>
+        <footer class="pt-6">
+          <div class="w-full">
+            <div class="footer-surface p-6 md:p-8">
+              <div class="footer-grid">
+                <div class="footer-brand-col">
+                  <a href="/#home" class="footer-logo-link" aria-label="Home">
+                    <svg
+                      version="1.1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      viewBox="0 0 224 222"
+                      class="footer-logo-svg"
+                      role="img"
+                      aria-hidden="true"
+                    >
+                      <path
+                        fill="currentColor"
+                        opacity="1"
+                        stroke="none"
+                        d="M209.709229,128.597015 C200.119522,171.462112 175.024765,199.698959 132.302872,209.34697 C83.249557,220.42482 35.685448,194.256714 18.086395,148.149658 C3.020684,108.679604 11.100267,72.79303 39.289291,42.286015 C58.236286,21.781002 82.901413,11.583974 111.280739,11.795698 C159.862732,12.158146 201.062042,46.441349 209.273956,94.396294 C211.151825,105.362473 209.706314,116.897751 209.709229,128.597015 M110.474266,201.114899 C126.777939,200.554871 142.314636,197.513611 155.75058,186.997498 C127.856895,195.908905 101.689468,193.248459 78.178986,175.375336 C54.362194,157.269379 44.367489,132.609695 47.063599,103.126572 C48.977749,82.194458 58.385197,64.465591 74.577019,51.04855 C100.355164,29.687998 129.199677,26.845535 160.222305,38.620674 C159.096802,37.204227 157.838058,36.290016 156.514465,35.482048 C123.290504,15.200976 78.489731,19.537846 49.551304,46.374435 C22.074209,71.855835 12.750312,116.096619 29.511086,149.628021 C45.941746,182.498978 72.80983,199.53038 110.474266,201.114899 M146.106735,42.183121 C125.702164,37.71526 106.840843,41.445023 89.379967,53.211834 C109.838539,45.810177 129.787994,45.526703 148.969406,56.87022 C168.20575,68.246231 178.688828,85.357552 180.219604,107.34819 C181.867554,131.022064 172.712448,150.329407 153.247177,164.145844 C133.705048,178.0168 112.350754,178.388611 90.211403,171.073776 C116.646049,187.175873 143.567261,188.290421 169.167862,171.070465 C194.36351,154.122925 205.03157,129.176743 199.615463,99.110466 C194.278687,69.484612 175.510056,51.065792 146.106735,42.183121 M86.630585,127.500763 C86.630585,121.150284 86.630585,114.799797 86.630585,107.270309 C95.331764,117.761993 103.128296,127.162872 111.033966,136.695343 C119.047752,126.934792 126.727585,117.580994 134.40741,108.227196 C134.742432,108.410912 135.077438,108.594627 135.412445,108.778336 C135.412445,123.196457 135.412445,137.614578 135.412445,152.125977 C140.140396,152.125977 144.502533,152.125977 148.696091,152.125977 C148.696091,125.21978 148.696091,98.736534 148.696091,71.492149 C135.887756,86.977615 123.628357,101.799423 111.025223,117.036804 C98.408508,101.790848 86.066757,86.877167 73.231079,71.366631 C73.231079,98.829315 73.231079,125.475403 73.231079,152.205109 C77.778656,152.205109 82.022453,152.205109 86.630775,152.205109 C86.630775,144.086044 86.630775,136.293243 86.630585,127.500763 Z"
+                      />
+                    </svg>
+                  </a>
+
+                  <p class="footer-subtitle" data-i18n="footerSubtitle">
+                    Frontend experiences built with performance and intention.
+                  </p>
+                </div>
+
+                <div class="footer-nav-col">
+                  <p class="footer-section-title" data-i18n="footerNavTitle">Navigation</p>
+                  <nav class="footer-nav-links" aria-label="Footer navigation">
+                    <a href="/#about" data-i18n="navAbout">About</a>
+                    <a href="/#experience" data-i18n="navExperience">Experience</a>
+                    <a href="/#skills" data-i18n="navSkills">Skills</a>
+                    <a href="/#projects" data-i18n="navProjects">Projects</a>
+                    <a href="/#contact" data-i18n="navContact">Contact</a>
+                  </nav>
+                </div>
+
+                <div class="footer-connect-col">
+                  <p class="footer-section-title" data-i18n="footerConnectTitle">Connect</p>
+                  <a class="footer-connect-link" href="mailto:santimarinh04@gmail.com"
+                    >santimarinh04@gmail.com</a
+                  >
+                  <p class="footer-connect-link">Santa Rosa de Cabal, Colombia</p>
+
+                  <div class="footer-social-row">
+                    <a
+                      href="https://github.com/NotMarin"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      class="footer-social-link"
+                      data-i18n-aria-label="contactGithubAria"
+                      aria-label="GitHub profile"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        class="size-5"
+                        fill="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M12 2a10 10 0 0 0-3.162 19.49c.5.093.682-.217.682-.482 0-.236-.009-.866-.014-1.699-2.776.603-3.363-1.338-3.363-1.338-.455-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.53 1.03 1.53 1.03.892 1.529 2.34 1.087 2.91.831.092-.646.35-1.087.636-1.337-2.216-.252-4.548-1.108-4.548-4.934 0-1.09.389-1.983 1.029-2.682-.103-.253-.446-1.269.098-2.645 0 0 .84-.269 2.75 1.024A9.56 9.56 0 0 1 12 6.845a9.56 9.56 0 0 1 2.505.337c1.909-1.293 2.748-1.024 2.748-1.024.545 1.376.202 2.392.099 2.645.64.699 1.028 1.592 1.028 2.682 0 3.835-2.336 4.678-4.559 4.925.359.309.678.919.678 1.852 0 1.337-.012 2.416-.012 2.746 0 .267.18.579.688.481A10 10 0 0 0 12 2Z"
+                        />
+                      </svg>
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/notmarin"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      class="footer-social-link"
+                      data-i18n-aria-label="contactLinkedinAria"
+                      aria-label="LinkedIn profile"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        class="size-5"
+                        fill="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.555V9h3.564v11.452z"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="footer-divider"></div>
+
+              <div class="footer-bottom">
+                <p class="footer-copy" data-i18n="footerCopy">Made by Santiago Marin.</p>
+                <p class="footer-rights" data-i18n="footerRights">All rights reserved.</p>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </main>
     </div>
   </body>
 </html>
