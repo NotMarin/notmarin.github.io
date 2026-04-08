@@ -1067,6 +1067,13 @@
                   method="POST"
                   novalidate
                 >
+                  <input type="hidden" name="subject" value="New Portfolio Contact Message" />
+                  <input type="hidden" name="from_name" value="Santiago Marin Portfolio" />
+                  <input
+                    type="hidden"
+                    name="access_key"
+                    value="8e26eba3-03d6-4ec0-bc44-1e25db3d5370"
+                  />
                   <div class="space-y-2">
                     <label class="contact-label" for="contact-name" data-i18n="contactFieldName"
                       >Name</label
@@ -1112,22 +1119,12 @@
                       name="message"
                       required
                       minlength="10"
-                      rows="6"
+                      rows="4"
                       data-i18n-placeholder="contactFieldMessagePlaceholder"
                       placeholder="Tell me about your project"
                       class="contact-input contact-textarea"
                     ></textarea>
                   </div>
-
-                  <input type="hidden" name="subject" value="New Portfolio Contact Message" />
-                  <input type="hidden" name="from_name" value="Santiago Marin Portfolio" />
-                  <!-- Web3Forms access key is injected at CI deploy time via GitHub Actions. -->
-                  <input
-                    type="hidden"
-                    name="access_key"
-                    value="PLACEHOLDER_WEB3FORMS_KEY"
-                    data-web3forms-key
-                  />
 
                   <div
                     class="flex flex-col gap-3 pt-2 sm:flex-row sm:items-center sm:justify-between"
